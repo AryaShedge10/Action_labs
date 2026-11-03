@@ -1,0 +1,22 @@
+services:
+  team-b-api:
+    build: .
+    ports:
+      - "8001:8001"          # Team A's service already uses 8000
+    environment:
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      LLM_MODEL: qwen3:8b
+      EXTRACTION_MODE: auto  # rule-based + verified LLM when Ollama is reachable, rules only otherwise
+      GENERATION_MODE: auto
+      REDACT_PHI_FOR_LLM: "true"
+      ALLOW_REMOTE_LLM: "false"
+      TEAM_A_BASE_URL: http://host.docker.internal:8000
+      STORE_PATH: /app/data/store/consultations.db
+    volumes:
+      - teamb-store:/app/data/store
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+volumes:
+  teamb-store:

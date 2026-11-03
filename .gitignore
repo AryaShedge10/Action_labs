@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Virtual environments
+myvenv/
+venv/
+.venv/
+
+# Local data that may contain PHI - never commit
+data/store/
+data/external/
+*.db
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

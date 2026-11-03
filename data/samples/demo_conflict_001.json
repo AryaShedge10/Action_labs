@@ -1,0 +1,26 @@
+{
+  "consultation_id": "demo_conflict_001",
+  "segments": [
+    {
+      "speaker": "DOCTOR",
+      "start_time": 0.0,
+      "end_time": 3.2,
+      "text": "What brings you in today?",
+      "confidence": 0.98
+    },
+    {
+      "speaker": "PATIENT",
+      "start_time": 3.5,
+      "end_time": 8.9,
+      "text": "I've had a sore throat and fever for three days. I'm allergic to penicillin, it gives me hives.",
+      "confidence": 0.95
+    },
+    {
+      "speaker": "DOCTOR",
+      "start_time": 9.2,
+      "end_time": 14.0,
+      "text": "Your temperature is 101.2 degrees and your throat looks red. I'll prescribe amoxicillin 500 mg three times a day for 10 days.",
+      "confidence": 0.96
+    }
+  ]
+}

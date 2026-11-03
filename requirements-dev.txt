@@ -1,0 +1,6 @@
+-r requirements.txt
+# Developer console
+streamlit>=1.40
+# Tests
+pytest>=8.0
+httpx>=0.27

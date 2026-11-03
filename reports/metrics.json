@@ -1,0 +1,197 @@
+{
+  "runs": [
+    {
+      "config": {
+        "extraction_mode": "rule",
+        "generation_mode": "template"
+      },
+      "n_cases": 34,
+      "entities": {
+        "per_type": {
+          "ALLERGY": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 12,
+            "fp": 0,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "DEMOGRAPHIC": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 9,
+            "fp": 0,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "DIAGNOSIS": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 9,
+            "fp": 0,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "FINDING": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 2,
+            "fp": 0,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "MEDICATION": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 27,
+            "fp": 0,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "PROCEDURE": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 6,
+            "fp": 0,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "SYMPTOM": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 27,
+            "fp": 0,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "VITAL": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 6,
+            "fp": 0,
+            "fn": 0,
+            "status_accuracy": 1.0
+          }
+        },
+        "micro": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 98,
+          "fp": 0,
+          "fn": 0,
+          "status_accuracy": 1.0
+        }
+      },
+      "conflicts": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 23,
+        "fp": 0,
+        "fn": 0,
+        "blocked_recall": 1.0
+      },
+      "triage": {
+        "accuracy": 1.0,
+        "critical_misses": [],
+        "under_triage": [],
+        "over_triage": [],
+        "confusion": {
+          "SAFE": {
+            "SAFE": 16
+          },
+          "CONFLICT_DETECTED": {
+            "CONFLICT_DETECTED": 6
+          },
+          "REVIEW_REQUIRED": {
+            "REVIEW_REQUIRED": 12
+          }
+        }
+      },
+      "grounding": {
+        "mean_grounding_score": 1.0,
+        "mean_hallucination_score": 0.0,
+        "mean_entity_coverage": 0.9848
+      },
+      "latency_ms": {
+        "p50": 0.5,
+        "p95": 1.1,
+        "max": 7.4
+      },
+      "failures": []
+    }
+  ],
+  "hallucination_injection": {
+    "per_kind": {
+      "blocked_item_asserted": {
+        "detected": 5,
+        "total": 5,
+        "rate": 1.0
+      },
+      "fabricated_citation": {
+        "detected": 29,
+        "total": 29,
+        "rate": 1.0
+      },
+      "fabricated_diagnosis": {
+        "detected": 34,
+        "total": 34,
+        "rate": 1.0
+      },
+      "fabricated_medication": {
+        "detected": 34,
+        "total": 34,
+        "rate": 1.0
+      },
+      "fabricated_number": {
+        "detected": 29,
+        "total": 29,
+        "rate": 1.0
+      },
+      "family_misattribution": {
+        "detected": 1,
+        "total": 1,
+        "rate": 1.0
+      },
+      "negation_flip": {
+        "detected": 4,
+        "total": 4,
+        "rate": 1.0
+      }
+    },
+    "overall_detection_rate": 1.0,
+    "generated_fact_claims": 80,
+    "false_alarm_rate": 0.0,
+    "examples": {
+      "fabricated_diagnosis": "Clinician assessment: pneumonia.  ->  UNSUPPORTED: 'pneumonia' does not appear anywhere in the transcript",
+      "fabricated_medication": "Prescribe prednisone.  ->  UNSUPPORTED: 'prednisone' does not appear anywhere in the transcript",
+      "fabricated_number": "Patient sex recorded as male (from form of address) for 14 days.  ->  UNSUPPORTED: value '14' does not appear in the cited segments",
+      "fabricated_citation": "Patient sex recorded as male (from form of address).  ->  UNSUPPORTED: cited segment S999 does not exist",
+      "negation_flip": "Patient reports rash.  ->  CONTRADICTED: transcript states 'rash' is absent / denied / avoided",
+      "blocked_item_asserted": "Prescribe amoxicillin.  ->  CONTRADICTED: 'amoxicillin' was BLOCKED by the safety engine but is asserted in the note",
+      "family_misattribution": "Patient takes lisinopril.  ->  CONTRADICTED: 'lisinopril' refers to a family member (father), not the patient"
+    }
+  },
+  "safety_ablation": {
+    "cases_with_expected_blocks": 6,
+    "unsafe_leaks_with_safety_engine": 0,
+    "unsafe_leaks_without_safety_engine": 6,
+    "leaked_without_engine": [
+      "ADV-001:amoxicillin",
+      "DEMO-001:pregnan",
+      "PREG-001:lisinopril",
+      "DDI-002:sildenafil",
+      "SULFA-001:sulfamethoxazole-trimethoprim",
+      "NSAID-001:naproxen"
+    ]
+  }
+}

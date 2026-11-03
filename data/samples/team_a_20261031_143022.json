@@ -1,0 +1,12 @@
+{
+  "consultation_id": "20261031_143022",
+  "segments": [
+    {"speaker": "DOCTOR", "start_time": 0.0, "end_time": 3.45, "text": "Good afternoon, Mr. Davis. What brings you into the clinic today?", "confidence": 0.98},
+    {"speaker": "PATIENT", "start_time": 3.82, "end_time": 9.15, "text": "Hi Doctor, I've had a severe sore throat and a low-grade fever for the past three days. It's getting harder to swallow.", "confidence": 0.96},
+    {"speaker": "DOCTOR", "start_time": 9.40, "end_time": 12.80, "text": "I see. Have you had any cough, difficulty breathing, or rash?", "confidence": 0.97},
+    {"speaker": "PATIENT", "start_time": 13.05, "end_time": 16.50, "text": "No cough or shortness of breath, just mild body aches and fatigue.", "confidence": 0.95},
+    {"speaker": "DOCTOR", "start_time": 16.90, "end_time": 20.25, "text": "Understood. Before we consider any antibiotics, do you have any drug allergies?", "confidence": 0.99},
+    {"speaker": "PATIENT", "start_time": 20.60, "end_time": 25.10, "text": "Yes, I am allergic to Amoxicillin and Penicillin. I got hives the last time I took it.", "confidence": 0.97},
+    {"speaker": "DOCTOR", "start_time": 25.40, "end_time": 29.80, "text": "Noted, we will avoid the penicillin family. Let's do an examination of your throat.", "confidence": 0.98}
+  ]
+}

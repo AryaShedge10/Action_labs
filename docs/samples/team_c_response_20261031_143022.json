@@ -1,0 +1,754 @@
+{
+  "schema_version": "1.0",
+  "consultation_id": "20261031_143022",
+  "generated_at": "2026-11-03T05:02:47Z",
+  "safety_status": "SAFE",
+  "requires_physician_signoff": true,
+  "patient_info": {
+    "demographics": {
+      "sex": "male",
+      "age": null,
+      "pregnancy_status": null
+    },
+    "allergies": [
+      "Amoxicillin",
+      "Penicillin"
+    ],
+    "medications": []
+  },
+  "soap_note": {
+    "subjective": "Patient sex recorded as male (from form of address). Patient reports severe sore throat, low-grade fever and difficulty swallowing for three days. Patient reports mild body aches and fatigue. Patient denies rash, cough and shortness of breath. Allergies: amoxicillin (reaction: hives) and penicillin (reaction: hives).",
+    "objective": "No vital signs or examination findings were documented in the transcript.",
+    "assessment": "No diagnosis was stated during the consultation; assessment deferred to the reviewing physician.",
+    "plan": "Avoid penicillin (documented allergy). Planned: throat examination."
+  },
+  "soap_claims": {
+    "subjective": [
+      {
+        "claim_id": "C001",
+        "section": "subjective",
+        "text": "Patient sex recorded as male (from form of address).",
+        "kind": "FACT",
+        "entity_ids": [
+          "E001"
+        ],
+        "segment_ids": [
+          "S001"
+        ],
+        "conflict_ids": [],
+        "citations": [
+          {
+            "segment_id": "S001",
+            "speaker": "DOCTOR",
+            "start_time": 0.0,
+            "end_time": 3.45,
+            "text": "Good afternoon, Mr. Davis. What brings you into the clinic today?",
+            "segment_sha256": "1579a8c8457e641e1673e1909ad2ccad6bd09d87aa71df55b541b303dc8c5274",
+            "asr_confidence": 0.98
+          }
+        ],
+        "grounding_status": "SUPPORTED",
+        "support_score": 1.0,
+        "confidence": 0.98,
+        "issues": []
+      },
+      {
+        "claim_id": "C002",
+        "section": "subjective",
+        "text": "Patient reports severe sore throat, low-grade fever and difficulty swallowing for three days.",
+        "kind": "FACT",
+        "entity_ids": [
+          "E002",
+          "E003",
+          "E004"
+        ],
+        "segment_ids": [
+          "S002"
+        ],
+        "conflict_ids": [],
+        "citations": [
+          {
+            "segment_id": "S002",
+            "speaker": "PATIENT",
+            "start_time": 3.82,
+            "end_time": 9.15,
+            "text": "Hi Doctor, I've had a severe sore throat and a low-grade fever for the past three days. It's getting harder to swallow.",
+            "segment_sha256": "db3dbe0ab6cd9381741a3ac13ce6096c0873855280a24c8f4def5d4c1f273c7a",
+            "asr_confidence": 0.96
+          }
+        ],
+        "grounding_status": "SUPPORTED",
+        "support_score": 1.0,
+        "confidence": 0.96,
+        "issues": []
+      },
+      {
+        "claim_id": "C003",
+        "section": "subjective",
+        "text": "Patient reports mild body aches and fatigue.",
+        "kind": "FACT",
+        "entity_ids": [
+          "E008",
+          "E009"
+        ],
+        "segment_ids": [
+          "S004"
+        ],
+        "conflict_ids": [],
+        "citations": [
+          {
+            "segment_id": "S004",
+            "speaker": "PATIENT",
+            "start_time": 13.05,
+            "end_time": 16.5,
+            "text": "No cough or shortness of breath, just mild body aches and fatigue.",
+            "segment_sha256": "9e5ff5fb48a7f980d159144b42302d20c43b1d0f7ed50fc78699f3331c14b2de",
+            "asr_confidence": 0.95
+          }
+        ],
+        "grounding_status": "SUPPORTED",
+        "support_score": 1.0,
+        "confidence": 0.95,
+        "issues": []
+      },
+      {
+        "claim_id": "C004",
+        "section": "subjective",
+        "text": "Patient denies rash, cough and shortness of breath.",
+        "kind": "FACT",
+        "entity_ids": [
+          "E005",
+          "E006",
+          "E007"
+        ],
+        "segment_ids": [
+          "S003",
+          "S004"
+        ],
+        "conflict_ids": [],
+        "citations": [
+          {
+            "segment_id": "S003",
+            "speaker": "DOCTOR",
+            "start_time": 9.4,
+            "end_time": 12.8,
+            "text": "I see. Have you had any cough, difficulty breathing, or rash?",
+            "segment_sha256": "fdefec606c619a17943e610cc02b5034e2a009e628625afe7fccb4678b452abf",
+            "asr_confidence": 0.97
+          },
+          {
+            "segment_id": "S004",
+            "speaker": "PATIENT",
+            "start_time": 13.05,
+            "end_time": 16.5,
+            "text": "No cough or shortness of breath, just mild body aches and fatigue.",
+            "segment_sha256": "9e5ff5fb48a7f980d159144b42302d20c43b1d0f7ed50fc78699f3331c14b2de",
+            "asr_confidence": 0.95
+          }
+        ],
+        "grounding_status": "SUPPORTED",
+        "support_score": 1.0,
+        "confidence": 0.96,
+        "issues": []
+      },
+      {
+        "claim_id": "C005",
+        "section": "subjective",
+        "text": "Allergies: amoxicillin (reaction: hives) and penicillin (reaction: hives).",
+        "kind": "FACT",
+        "entity_ids": [
+          "E010",
+          "E011"
+        ],
+        "segment_ids": [
+          "S006"
+        ],
+        "conflict_ids": [],
+        "citations": [
+          {
+            "segment_id": "S006",
+            "speaker": "PATIENT",
+            "start_time": 20.6,
+            "end_time": 25.1,
+            "text": "Yes, I am allergic to Amoxicillin and Penicillin. I got hives the last time I took it.",
+            "segment_sha256": "c36e506fedc7ed618cccd1d71e6d8260fb4e65a312f35e58758545fccdc26ef3",
+            "asr_confidence": 0.97
+          }
+        ],
+        "grounding_status": "SUPPORTED",
+        "support_score": 1.0,
+        "confidence": 0.97,
+        "issues": []
+      }
+    ],
+    "objective": [
+      {
+        "claim_id": "C006",
+        "section": "objective",
+        "text": "No vital signs or examination findings were documented in the transcript.",
+        "kind": "META",
+        "entity_ids": [],
+        "segment_ids": [],
+        "conflict_ids": [],
+        "citations": [],
+        "grounding_status": "NOT_APPLICABLE",
+        "support_score": 1.0,
+        "confidence": 1.0,
+        "issues": []
+      }
+    ],
+    "assessment": [
+      {
+        "claim_id": "C007",
+        "section": "assessment",
+        "text": "No diagnosis was stated during the consultation; assessment deferred to the reviewing physician.",
+        "kind": "META",
+        "entity_ids": [],
+        "segment_ids": [],
+        "conflict_ids": [],
+        "citations": [],
+        "grounding_status": "NOT_APPLICABLE",
+        "support_score": 1.0,
+        "confidence": 1.0,
+        "issues": []
+      }
+    ],
+    "plan": [
+      {
+        "claim_id": "C008",
+        "section": "plan",
+        "text": "Avoid penicillin (documented allergy).",
+        "kind": "FACT",
+        "entity_ids": [
+          "E012",
+          "E011"
+        ],
+        "segment_ids": [
+          "S007",
+          "S006"
+        ],
+        "conflict_ids": [],
+        "citations": [
+          {
+            "segment_id": "S007",
+            "speaker": "DOCTOR",
+            "start_time": 25.4,
+            "end_time": 29.8,
+            "text": "Noted, we will avoid the penicillin family. Let's do an examination of your throat.",
+            "segment_sha256": "3c4421c319614cc12dcecfaf594acdc50a92015014a67a1c4b67e04460eaa7ac",
+            "asr_confidence": 0.98
+          },
+          {
+            "segment_id": "S006",
+            "speaker": "PATIENT",
+            "start_time": 20.6,
+            "end_time": 25.1,
+            "text": "Yes, I am allergic to Amoxicillin and Penicillin. I got hives the last time I took it.",
+            "segment_sha256": "c36e506fedc7ed618cccd1d71e6d8260fb4e65a312f35e58758545fccdc26ef3",
+            "asr_confidence": 0.97
+          }
+        ],
+        "grounding_status": "SUPPORTED",
+        "support_score": 1.0,
+        "confidence": 0.975,
+        "issues": []
+      },
+      {
+        "claim_id": "C009",
+        "section": "plan",
+        "text": "Planned: throat examination.",
+        "kind": "FACT",
+        "entity_ids": [
+          "E013"
+        ],
+        "segment_ids": [
+          "S007"
+        ],
+        "conflict_ids": [],
+        "citations": [
+          {
+            "segment_id": "S007",
+            "speaker": "DOCTOR",
+            "start_time": 25.4,
+            "end_time": 29.8,
+            "text": "Noted, we will avoid the penicillin family. Let's do an examination of your throat.",
+            "segment_sha256": "3c4421c319614cc12dcecfaf594acdc50a92015014a67a1c4b67e04460eaa7ac",
+            "asr_confidence": 0.98
+          }
+        ],
+        "grounding_status": "SUPPORTED",
+        "support_score": 1.0,
+        "confidence": 0.98,
+        "issues": []
+      }
+    ]
+  },
+  "conflicts": [],
+  "draft_prescriptions": [],
+  "entities": [
+    {
+      "entity_id": "E001",
+      "type": "DEMOGRAPHIC",
+      "text": "Mr.",
+      "normalized": "sex",
+      "status": "PRESENT",
+      "value": "male",
+      "unit": null,
+      "attributes": {
+        "basis": "form_of_address"
+      },
+      "evidence": [
+        {
+          "segment_id": "S001",
+          "speaker": "DOCTOR",
+          "start_time": 0.0,
+          "end_time": 3.45,
+          "quote": "Good afternoon, Mr. Davis. What brings you into the clinic today?",
+          "segment_sha256": "1579a8c8457e641e1673e1909ad2ccad6bd09d87aa71df55b541b303dc8c5274"
+        }
+      ],
+      "confidence": 0.686,
+      "source": "rule",
+      "status_history": [
+        "PRESENT"
+      ]
+    },
+    {
+      "entity_id": "E002",
+      "type": "SYMPTOM",
+      "text": "sore throat",
+      "normalized": "sore throat",
+      "status": "PRESENT",
+      "value": null,
+      "unit": null,
+      "attributes": {
+        "severity": "severe",
+        "duration": "three days"
+      },
+      "evidence": [
+        {
+          "segment_id": "S002",
+          "speaker": "PATIENT",
+          "start_time": 3.82,
+          "end_time": 9.15,
+          "quote": "Hi Doctor, I've had a severe sore throat and a low-grade fever for the past three days.",
+          "segment_sha256": "db3dbe0ab6cd9381741a3ac13ce6096c0873855280a24c8f4def5d4c1f273c7a"
+        }
+      ],
+      "confidence": 0.864,
+      "source": "rule",
+      "status_history": [
+        "PRESENT"
+      ]
+    },
+    {
+      "entity_id": "E003",
+      "type": "SYMPTOM",
+      "text": "fever",
+      "normalized": "fever",
+      "status": "PRESENT",
+      "value": null,
+      "unit": null,
+      "attributes": {
+        "severity": "low-grade",
+        "duration": "three days"
+      },
+      "evidence": [
+        {
+          "segment_id": "S002",
+          "speaker": "PATIENT",
+          "start_time": 3.82,
+          "end_time": 9.15,
+          "quote": "Hi Doctor, I've had a severe sore throat and a low-grade fever for the past three days.",
+          "segment_sha256": "db3dbe0ab6cd9381741a3ac13ce6096c0873855280a24c8f4def5d4c1f273c7a"
+        }
+      ],
+      "confidence": 0.864,
+      "source": "rule",
+      "status_history": [
+        "PRESENT"
+      ]
+    },
+    {
+      "entity_id": "E004",
+      "type": "SYMPTOM",
+      "text": "harder to swallow",
+      "normalized": "difficulty swallowing",
+      "status": "PRESENT",
+      "value": null,
+      "unit": null,
+      "attributes": {},
+      "evidence": [
+        {
+          "segment_id": "S002",
+          "speaker": "PATIENT",
+          "start_time": 3.82,
+          "end_time": 9.15,
+          "quote": "It's getting harder to swallow.",
+          "segment_sha256": "db3dbe0ab6cd9381741a3ac13ce6096c0873855280a24c8f4def5d4c1f273c7a"
+        }
+      ],
+      "confidence": 0.864,
+      "source": "rule",
+      "status_history": [
+        "PRESENT"
+      ]
+    },
+    {
+      "entity_id": "E005",
+      "type": "SYMPTOM",
+      "text": "rash",
+      "normalized": "rash",
+      "status": "ABSENT",
+      "value": null,
+      "unit": null,
+      "attributes": {
+        "inferred_from_dialogue": "true"
+      },
+      "evidence": [
+        {
+          "segment_id": "S003",
+          "speaker": "DOCTOR",
+          "start_time": 9.4,
+          "end_time": 12.8,
+          "quote": "Have you had any cough, difficulty breathing, or rash?",
+          "segment_sha256": "fdefec606c619a17943e610cc02b5034e2a009e628625afe7fccb4678b452abf"
+        },
+        {
+          "segment_id": "S004",
+          "speaker": "PATIENT",
+          "start_time": 13.05,
+          "end_time": 16.5,
+          "quote": "No cough or shortness of breath, just mild body aches and fatigue.",
+          "segment_sha256": "9e5ff5fb48a7f980d159144b42302d20c43b1d0f7ed50fc78699f3331c14b2de"
+        }
+      ],
+      "confidence": 0.7,
+      "source": "rule",
+      "status_history": []
+    },
+    {
+      "entity_id": "E006",
+      "type": "SYMPTOM",
+      "text": "cough",
+      "normalized": "cough",
+      "status": "ABSENT",
+      "value": null,
+      "unit": null,
+      "attributes": {},
+      "evidence": [
+        {
+          "segment_id": "S004",
+          "speaker": "PATIENT",
+          "start_time": 13.05,
+          "end_time": 16.5,
+          "quote": "No cough or shortness of breath, just mild body aches and fatigue.",
+          "segment_sha256": "9e5ff5fb48a7f980d159144b42302d20c43b1d0f7ed50fc78699f3331c14b2de"
+        }
+      ],
+      "confidence": 0.855,
+      "source": "rule",
+      "status_history": [
+        "ABSENT"
+      ]
+    },
+    {
+      "entity_id": "E007",
+      "type": "SYMPTOM",
+      "text": "shortness of breath",
+      "normalized": "shortness of breath",
+      "status": "ABSENT",
+      "value": null,
+      "unit": null,
+      "attributes": {},
+      "evidence": [
+        {
+          "segment_id": "S004",
+          "speaker": "PATIENT",
+          "start_time": 13.05,
+          "end_time": 16.5,
+          "quote": "No cough or shortness of breath, just mild body aches and fatigue.",
+          "segment_sha256": "9e5ff5fb48a7f980d159144b42302d20c43b1d0f7ed50fc78699f3331c14b2de"
+        }
+      ],
+      "confidence": 0.855,
+      "source": "rule",
+      "status_history": [
+        "ABSENT"
+      ]
+    },
+    {
+      "entity_id": "E008",
+      "type": "SYMPTOM",
+      "text": "body aches",
+      "normalized": "body aches",
+      "status": "PRESENT",
+      "value": null,
+      "unit": null,
+      "attributes": {
+        "severity": "mild"
+      },
+      "evidence": [
+        {
+          "segment_id": "S004",
+          "speaker": "PATIENT",
+          "start_time": 13.05,
+          "end_time": 16.5,
+          "quote": "No cough or shortness of breath, just mild body aches and fatigue.",
+          "segment_sha256": "9e5ff5fb48a7f980d159144b42302d20c43b1d0f7ed50fc78699f3331c14b2de"
+        }
+      ],
+      "confidence": 0.855,
+      "source": "rule",
+      "status_history": [
+        "PRESENT"
+      ]
+    },
+    {
+      "entity_id": "E009",
+      "type": "SYMPTOM",
+      "text": "fatigue",
+      "normalized": "fatigue",
+      "status": "PRESENT",
+      "value": null,
+      "unit": null,
+      "attributes": {},
+      "evidence": [
+        {
+          "segment_id": "S004",
+          "speaker": "PATIENT",
+          "start_time": 13.05,
+          "end_time": 16.5,
+          "quote": "No cough or shortness of breath, just mild body aches and fatigue.",
+          "segment_sha256": "9e5ff5fb48a7f980d159144b42302d20c43b1d0f7ed50fc78699f3331c14b2de"
+        }
+      ],
+      "confidence": 0.855,
+      "source": "rule",
+      "status_history": [
+        "PRESENT"
+      ]
+    },
+    {
+      "entity_id": "E010",
+      "type": "ALLERGY",
+      "text": "Amoxicillin",
+      "normalized": "amoxicillin",
+      "status": "PRESENT",
+      "value": null,
+      "unit": null,
+      "attributes": {
+        "allergen_kind": "drug",
+        "reaction": "hives"
+      },
+      "evidence": [
+        {
+          "segment_id": "S006",
+          "speaker": "PATIENT",
+          "start_time": 20.6,
+          "end_time": 25.1,
+          "quote": "Yes, I am allergic to Amoxicillin and Penicillin.",
+          "segment_sha256": "c36e506fedc7ed618cccd1d71e6d8260fb4e65a312f35e58758545fccdc26ef3"
+        }
+      ],
+      "confidence": 0.892,
+      "source": "rule",
+      "status_history": [
+        "PRESENT"
+      ]
+    },
+    {
+      "entity_id": "E011",
+      "type": "ALLERGY",
+      "text": "Penicillin",
+      "normalized": "penicillin",
+      "status": "PRESENT",
+      "value": null,
+      "unit": null,
+      "attributes": {
+        "allergen_kind": "drug",
+        "reaction": "hives"
+      },
+      "evidence": [
+        {
+          "segment_id": "S006",
+          "speaker": "PATIENT",
+          "start_time": 20.6,
+          "end_time": 25.1,
+          "quote": "Yes, I am allergic to Amoxicillin and Penicillin.",
+          "segment_sha256": "c36e506fedc7ed618cccd1d71e6d8260fb4e65a312f35e58758545fccdc26ef3"
+        }
+      ],
+      "confidence": 0.892,
+      "source": "rule",
+      "status_history": [
+        "PRESENT"
+      ]
+    },
+    {
+      "entity_id": "E012",
+      "type": "MEDICATION",
+      "text": "penicillin",
+      "normalized": "penicillin",
+      "status": "ABSENT",
+      "value": null,
+      "unit": null,
+      "attributes": {
+        "intent": "avoid"
+      },
+      "evidence": [
+        {
+          "segment_id": "S007",
+          "speaker": "DOCTOR",
+          "start_time": 25.4,
+          "end_time": 29.8,
+          "quote": "Noted, we will avoid the penicillin family.",
+          "segment_sha256": "3c4421c319614cc12dcecfaf594acdc50a92015014a67a1c4b67e04460eaa7ac"
+        }
+      ],
+      "confidence": 0.882,
+      "source": "rule",
+      "status_history": [
+        "ABSENT"
+      ]
+    },
+    {
+      "entity_id": "E013",
+      "type": "PROCEDURE",
+      "text": "examination of your throat",
+      "normalized": "throat examination",
+      "status": "RECOMMENDED",
+      "value": null,
+      "unit": null,
+      "attributes": {},
+      "evidence": [
+        {
+          "segment_id": "S007",
+          "speaker": "DOCTOR",
+          "start_time": 25.4,
+          "end_time": 29.8,
+          "quote": "Let's do an examination of your throat.",
+          "segment_sha256": "3c4421c319614cc12dcecfaf594acdc50a92015014a67a1c4b67e04460eaa7ac"
+        }
+      ],
+      "confidence": 0.882,
+      "source": "rule",
+      "status_history": [
+        "RECOMMENDED"
+      ]
+    }
+  ],
+  "grounding": {
+    "total_claims": 9,
+    "fact_claims": 7,
+    "supported": 7,
+    "partially_supported": 0,
+    "unsupported": 0,
+    "contradicted": 0,
+    "grounding_score": 1.0,
+    "unsupported_claim_rate": 0.0,
+    "contradiction_rate": 0.0,
+    "hallucination_score": 0.0,
+    "citation_verification_rate": 1.0,
+    "entity_coverage": 1.0,
+    "removed_claims": []
+  },
+  "confidence": {
+    "overall": 0.931,
+    "transcription": 0.9714,
+    "extraction": 0.842,
+    "grounding": 0.968
+  },
+  "transcript": [
+    {
+      "segment_id": "S001",
+      "index": 0,
+      "speaker": "DOCTOR",
+      "start_time": 0.0,
+      "end_time": 3.45,
+      "text": "Good afternoon, Mr. Davis. What brings you into the clinic today?",
+      "confidence": 0.98,
+      "sha256": "1579a8c8457e641e1673e1909ad2ccad6bd09d87aa71df55b541b303dc8c5274"
+    },
+    {
+      "segment_id": "S002",
+      "index": 1,
+      "speaker": "PATIENT",
+      "start_time": 3.82,
+      "end_time": 9.15,
+      "text": "Hi Doctor, I've had a severe sore throat and a low-grade fever for the past three days. It's getting harder to swallow.",
+      "confidence": 0.96,
+      "sha256": "db3dbe0ab6cd9381741a3ac13ce6096c0873855280a24c8f4def5d4c1f273c7a"
+    },
+    {
+      "segment_id": "S003",
+      "index": 2,
+      "speaker": "DOCTOR",
+      "start_time": 9.4,
+      "end_time": 12.8,
+      "text": "I see. Have you had any cough, difficulty breathing, or rash?",
+      "confidence": 0.97,
+      "sha256": "fdefec606c619a17943e610cc02b5034e2a009e628625afe7fccb4678b452abf"
+    },
+    {
+      "segment_id": "S004",
+      "index": 3,
+      "speaker": "PATIENT",
+      "start_time": 13.05,
+      "end_time": 16.5,
+      "text": "No cough or shortness of breath, just mild body aches and fatigue.",
+      "confidence": 0.95,
+      "sha256": "9e5ff5fb48a7f980d159144b42302d20c43b1d0f7ed50fc78699f3331c14b2de"
+    },
+    {
+      "segment_id": "S005",
+      "index": 4,
+      "speaker": "DOCTOR",
+      "start_time": 16.9,
+      "end_time": 20.25,
+      "text": "Understood. Before we consider any antibiotics, do you have any drug allergies?",
+      "confidence": 0.99,
+      "sha256": "3f49ef8bf106926dacd32305d027bd8cc639e4a037a06e3df41ad320c6c455b9"
+    },
+    {
+      "segment_id": "S006",
+      "index": 5,
+      "speaker": "PATIENT",
+      "start_time": 20.6,
+      "end_time": 25.1,
+      "text": "Yes, I am allergic to Amoxicillin and Penicillin. I got hives the last time I took it.",
+      "confidence": 0.97,
+      "sha256": "c36e506fedc7ed618cccd1d71e6d8260fb4e65a312f35e58758545fccdc26ef3"
+    },
+    {
+      "segment_id": "S007",
+      "index": 6,
+      "speaker": "DOCTOR",
+      "start_time": 25.4,
+      "end_time": 29.8,
+      "text": "Noted, we will avoid the penicillin family. Let's do an examination of your throat.",
+      "confidence": 0.98,
+      "sha256": "3c4421c319614cc12dcecfaf594acdc50a92015014a67a1c4b67e04460eaa7ac"
+    }
+  ],
+  "metadata": {
+    "schema_version": "1.0",
+    "pipeline_version": "1.0.0",
+    "rule_version": "1.0.0",
+    "source_format": "team_a_v1",
+    "extraction_mode": "rule",
+    "generation_mode": "template",
+    "model": null,
+    "phi_redacted_for_llm": false,
+    "transcript_sha256": "0f27e66f230a0bf26a311a433a4b24999e25cb5fbae8214f6166573501811350",
+    "processing_ms": {
+      "ingest": 0.5,
+      "extraction": 3.7,
+      "safety": 0.2,
+      "generation": 0.2,
+      "grounding": 5.4,
+      "total": 10.0
+    },
+    "warnings": []
+  }
+}

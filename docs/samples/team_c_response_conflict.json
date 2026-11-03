@@ -1,0 +1,509 @@
+{
+  "schema_version": "1.0",
+  "consultation_id": "demo_conflict_001",
+  "generated_at": "2026-11-03T05:02:47Z",
+  "safety_status": "CONFLICT_DETECTED",
+  "requires_physician_signoff": true,
+  "patient_info": {
+    "demographics": {
+      "sex": null,
+      "age": null,
+      "pregnancy_status": null
+    },
+    "allergies": [
+      "Penicillin"
+    ],
+    "medications": []
+  },
+  "soap_note": {
+    "subjective": "Patient reports sore throat and fever for three days. Allergies: penicillin (reaction: hives).",
+    "objective": "Temperature 101.2 \u00b0F. Examination: pharyngeal erythema.",
+    "assessment": "No diagnosis was stated during the consultation; assessment deferred to the reviewing physician.",
+    "plan": "SAFETY BLOCK: Amoxicillin conflicts with documented penicillin allergy (penicillin-class antibiotics). Excluded from this draft; physician review required."
+  },
+  "soap_claims": {
+    "subjective": [
+      {
+        "claim_id": "C001",
+        "section": "subjective",
+        "text": "Patient reports sore throat and fever for three days.",
+        "kind": "FACT",
+        "entity_ids": [
+          "E001",
+          "E002"
+        ],
+        "segment_ids": [
+          "S002"
+        ],
+        "conflict_ids": [],
+        "citations": [
+          {
+            "segment_id": "S002",
+            "speaker": "PATIENT",
+            "start_time": 3.5,
+            "end_time": 8.9,
+            "text": "I've had a sore throat and fever for three days. I'm allergic to penicillin, it gives me hives.",
+            "segment_sha256": "9c23484b843c15a216aace0d10c106c896b0cfa854d90f743a760b2ceca7c89e",
+            "asr_confidence": 0.95
+          }
+        ],
+        "grounding_status": "SUPPORTED",
+        "support_score": 1.0,
+        "confidence": 0.95,
+        "issues": []
+      },
+      {
+        "claim_id": "C002",
+        "section": "subjective",
+        "text": "Allergies: penicillin (reaction: hives).",
+        "kind": "FACT",
+        "entity_ids": [
+          "E003"
+        ],
+        "segment_ids": [
+          "S002"
+        ],
+        "conflict_ids": [],
+        "citations": [
+          {
+            "segment_id": "S002",
+            "speaker": "PATIENT",
+            "start_time": 3.5,
+            "end_time": 8.9,
+            "text": "I've had a sore throat and fever for three days. I'm allergic to penicillin, it gives me hives.",
+            "segment_sha256": "9c23484b843c15a216aace0d10c106c896b0cfa854d90f743a760b2ceca7c89e",
+            "asr_confidence": 0.95
+          }
+        ],
+        "grounding_status": "SUPPORTED",
+        "support_score": 1.0,
+        "confidence": 0.95,
+        "issues": []
+      }
+    ],
+    "objective": [
+      {
+        "claim_id": "C003",
+        "section": "objective",
+        "text": "Temperature 101.2 \u00b0F.",
+        "kind": "FACT",
+        "entity_ids": [
+          "E004"
+        ],
+        "segment_ids": [
+          "S003"
+        ],
+        "conflict_ids": [],
+        "citations": [
+          {
+            "segment_id": "S003",
+            "speaker": "DOCTOR",
+            "start_time": 9.2,
+            "end_time": 14.0,
+            "text": "Your temperature is 101.2 degrees and your throat looks red. I'll prescribe amoxicillin 500 mg three times a day for 10 days.",
+            "segment_sha256": "12c9f64df604751d011362e7c948b2e6131fd30cd1bb07f165d7aa3e9c2ed47d",
+            "asr_confidence": 0.96
+          }
+        ],
+        "grounding_status": "SUPPORTED",
+        "support_score": 0.5,
+        "confidence": 0.48,
+        "issues": []
+      },
+      {
+        "claim_id": "C004",
+        "section": "objective",
+        "text": "Examination: pharyngeal erythema.",
+        "kind": "FACT",
+        "entity_ids": [
+          "E005"
+        ],
+        "segment_ids": [
+          "S003"
+        ],
+        "conflict_ids": [],
+        "citations": [
+          {
+            "segment_id": "S003",
+            "speaker": "DOCTOR",
+            "start_time": 9.2,
+            "end_time": 14.0,
+            "text": "Your temperature is 101.2 degrees and your throat looks red. I'll prescribe amoxicillin 500 mg three times a day for 10 days.",
+            "segment_sha256": "12c9f64df604751d011362e7c948b2e6131fd30cd1bb07f165d7aa3e9c2ed47d",
+            "asr_confidence": 0.96
+          }
+        ],
+        "grounding_status": "SUPPORTED",
+        "support_score": 1.0,
+        "confidence": 0.96,
+        "issues": []
+      }
+    ],
+    "assessment": [
+      {
+        "claim_id": "C005",
+        "section": "assessment",
+        "text": "No diagnosis was stated during the consultation; assessment deferred to the reviewing physician.",
+        "kind": "META",
+        "entity_ids": [],
+        "segment_ids": [],
+        "conflict_ids": [],
+        "citations": [],
+        "grounding_status": "NOT_APPLICABLE",
+        "support_score": 1.0,
+        "confidence": 1.0,
+        "issues": []
+      }
+    ],
+    "plan": [
+      {
+        "claim_id": "C006",
+        "section": "plan",
+        "text": "SAFETY BLOCK: Amoxicillin conflicts with documented penicillin allergy (penicillin-class antibiotics). Excluded from this draft; physician review required.",
+        "kind": "SAFETY",
+        "entity_ids": [],
+        "segment_ids": [
+          "S002",
+          "S003"
+        ],
+        "conflict_ids": [
+          "K001"
+        ],
+        "citations": [
+          {
+            "segment_id": "S002",
+            "speaker": "PATIENT",
+            "start_time": 3.5,
+            "end_time": 8.9,
+            "text": "I've had a sore throat and fever for three days. I'm allergic to penicillin, it gives me hives.",
+            "segment_sha256": "9c23484b843c15a216aace0d10c106c896b0cfa854d90f743a760b2ceca7c89e",
+            "asr_confidence": 0.95
+          },
+          {
+            "segment_id": "S003",
+            "speaker": "DOCTOR",
+            "start_time": 9.2,
+            "end_time": 14.0,
+            "text": "Your temperature is 101.2 degrees and your throat looks red. I'll prescribe amoxicillin 500 mg three times a day for 10 days.",
+            "segment_sha256": "12c9f64df604751d011362e7c948b2e6131fd30cd1bb07f165d7aa3e9c2ed47d",
+            "asr_confidence": 0.96
+          }
+        ],
+        "grounding_status": "SUPPORTED",
+        "support_score": 1.0,
+        "confidence": 0.955,
+        "issues": []
+      }
+    ]
+  },
+  "conflicts": [
+    {
+      "conflict_id": "K001",
+      "rule_id": "ALLERGY_MEDICATION",
+      "type": "MEDICATION_ALLERGY",
+      "severity": "HIGH",
+      "status": "BLOCKED",
+      "message": "Amoxicillin conflicts with documented penicillin allergy (penicillin-class antibiotics).",
+      "allergy": "Penicillin",
+      "medication": "Amoxicillin",
+      "involved_terms": [
+        "penicillin",
+        "amoxicillin"
+      ],
+      "entity_ids": [
+        "E003",
+        "E006"
+      ],
+      "blocked_entity_ids": [
+        "E006"
+      ],
+      "evidence": [
+        {
+          "segment_id": "S002",
+          "speaker": "PATIENT",
+          "start_time": 3.5,
+          "end_time": 8.9,
+          "quote": "I'm allergic to penicillin, it gives me hives.",
+          "segment_sha256": "9c23484b843c15a216aace0d10c106c896b0cfa854d90f743a760b2ceca7c89e"
+        },
+        {
+          "segment_id": "S003",
+          "speaker": "DOCTOR",
+          "start_time": 9.2,
+          "end_time": 14.0,
+          "quote": "I'll prescribe amoxicillin 500 mg three times a day for 10 days.",
+          "segment_sha256": "12c9f64df604751d011362e7c948b2e6131fd30cd1bb07f165d7aa3e9c2ed47d"
+        }
+      ],
+      "recommendation": "Do not prescribe. Select an agent outside the allergen's drug class and confirm the allergy history and reaction severity with the patient.",
+      "confidence": 0.864
+    }
+  ],
+  "draft_prescriptions": [
+    {
+      "prescription_id": "RX001",
+      "entity_id": "E006",
+      "medication": "Amoxicillin",
+      "intent": "PRESCRIBED",
+      "dose": "500 mg",
+      "frequency": "three times a day",
+      "route": null,
+      "duration": "10 days",
+      "status": "BLOCKED",
+      "missing_fields": [],
+      "conflict_ids": [
+        "K001"
+      ],
+      "evidence": [
+        {
+          "segment_id": "S003",
+          "speaker": "DOCTOR",
+          "start_time": 9.2,
+          "end_time": 14.0,
+          "quote": "I'll prescribe amoxicillin 500 mg three times a day for 10 days.",
+          "segment_sha256": "12c9f64df604751d011362e7c948b2e6131fd30cd1bb07f165d7aa3e9c2ed47d"
+        }
+      ],
+      "confidence": 0.864,
+      "requires_signature": true
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "E001",
+      "type": "SYMPTOM",
+      "text": "sore throat",
+      "normalized": "sore throat",
+      "status": "PRESENT",
+      "value": null,
+      "unit": null,
+      "attributes": {
+        "duration": "three days"
+      },
+      "evidence": [
+        {
+          "segment_id": "S002",
+          "speaker": "PATIENT",
+          "start_time": 3.5,
+          "end_time": 8.9,
+          "quote": "I've had a sore throat and fever for three days.",
+          "segment_sha256": "9c23484b843c15a216aace0d10c106c896b0cfa854d90f743a760b2ceca7c89e"
+        }
+      ],
+      "confidence": 0.855,
+      "source": "rule",
+      "status_history": [
+        "PRESENT"
+      ]
+    },
+    {
+      "entity_id": "E002",
+      "type": "SYMPTOM",
+      "text": "fever",
+      "normalized": "fever",
+      "status": "PRESENT",
+      "value": null,
+      "unit": null,
+      "attributes": {
+        "duration": "three days"
+      },
+      "evidence": [
+        {
+          "segment_id": "S002",
+          "speaker": "PATIENT",
+          "start_time": 3.5,
+          "end_time": 8.9,
+          "quote": "I've had a sore throat and fever for three days.",
+          "segment_sha256": "9c23484b843c15a216aace0d10c106c896b0cfa854d90f743a760b2ceca7c89e"
+        }
+      ],
+      "confidence": 0.855,
+      "source": "rule",
+      "status_history": [
+        "PRESENT"
+      ]
+    },
+    {
+      "entity_id": "E003",
+      "type": "ALLERGY",
+      "text": "penicillin",
+      "normalized": "penicillin",
+      "status": "PRESENT",
+      "value": null,
+      "unit": null,
+      "attributes": {
+        "allergen_kind": "drug",
+        "reaction": "hives"
+      },
+      "evidence": [
+        {
+          "segment_id": "S002",
+          "speaker": "PATIENT",
+          "start_time": 3.5,
+          "end_time": 8.9,
+          "quote": "I'm allergic to penicillin, it gives me hives.",
+          "segment_sha256": "9c23484b843c15a216aace0d10c106c896b0cfa854d90f743a760b2ceca7c89e"
+        }
+      ],
+      "confidence": 0.874,
+      "source": "rule",
+      "status_history": [
+        "PRESENT"
+      ]
+    },
+    {
+      "entity_id": "E004",
+      "type": "VITAL",
+      "text": "temperature is 101.2 degrees ",
+      "normalized": "temperature",
+      "status": "PRESENT",
+      "value": "101.2",
+      "unit": "\u00b0F",
+      "attributes": {},
+      "evidence": [
+        {
+          "segment_id": "S003",
+          "speaker": "DOCTOR",
+          "start_time": 9.2,
+          "end_time": 14.0,
+          "quote": "Your temperature is 101.2 degrees and your throat looks red.",
+          "segment_sha256": "12c9f64df604751d011362e7c948b2e6131fd30cd1bb07f165d7aa3e9c2ed47d"
+        }
+      ],
+      "confidence": 0.864,
+      "source": "rule",
+      "status_history": [
+        "PRESENT"
+      ]
+    },
+    {
+      "entity_id": "E005",
+      "type": "FINDING",
+      "text": "throat looks red",
+      "normalized": "pharyngeal erythema",
+      "status": "PRESENT",
+      "value": null,
+      "unit": null,
+      "attributes": {},
+      "evidence": [
+        {
+          "segment_id": "S003",
+          "speaker": "DOCTOR",
+          "start_time": 9.2,
+          "end_time": 14.0,
+          "quote": "Your temperature is 101.2 degrees and your throat looks red.",
+          "segment_sha256": "12c9f64df604751d011362e7c948b2e6131fd30cd1bb07f165d7aa3e9c2ed47d"
+        }
+      ],
+      "confidence": 0.864,
+      "source": "rule",
+      "status_history": [
+        "PRESENT"
+      ]
+    },
+    {
+      "entity_id": "E006",
+      "type": "MEDICATION",
+      "text": "amoxicillin",
+      "normalized": "amoxicillin",
+      "status": "PRESCRIBED",
+      "value": null,
+      "unit": null,
+      "attributes": {
+        "dose": "500 mg",
+        "dose_mg": "500",
+        "frequency": "three times a day",
+        "doses_per_day": "3",
+        "duration": "10 days"
+      },
+      "evidence": [
+        {
+          "segment_id": "S003",
+          "speaker": "DOCTOR",
+          "start_time": 9.2,
+          "end_time": 14.0,
+          "quote": "I'll prescribe amoxicillin 500 mg three times a day for 10 days.",
+          "segment_sha256": "12c9f64df604751d011362e7c948b2e6131fd30cd1bb07f165d7aa3e9c2ed47d"
+        }
+      ],
+      "confidence": 0.864,
+      "source": "rule",
+      "status_history": [
+        "PRESCRIBED"
+      ]
+    }
+  ],
+  "grounding": {
+    "total_claims": 6,
+    "fact_claims": 4,
+    "supported": 4,
+    "partially_supported": 0,
+    "unsupported": 0,
+    "contradicted": 0,
+    "grounding_score": 1.0,
+    "unsupported_claim_rate": 0.0,
+    "contradiction_rate": 0.0,
+    "hallucination_score": 0.0,
+    "citation_verification_rate": 1.0,
+    "entity_coverage": 1.0,
+    "removed_claims": []
+  },
+  "confidence": {
+    "overall": 0.882,
+    "transcription": 0.9633,
+    "extraction": 0.863,
+    "grounding": 0.835
+  },
+  "transcript": [
+    {
+      "segment_id": "S001",
+      "index": 0,
+      "speaker": "DOCTOR",
+      "start_time": 0.0,
+      "end_time": 3.2,
+      "text": "What brings you in today?",
+      "confidence": 0.98,
+      "sha256": "c2ca244fb2d35075b0fa553605ff47389444a68591126c5b6612cacf4056c066"
+    },
+    {
+      "segment_id": "S002",
+      "index": 1,
+      "speaker": "PATIENT",
+      "start_time": 3.5,
+      "end_time": 8.9,
+      "text": "I've had a sore throat and fever for three days. I'm allergic to penicillin, it gives me hives.",
+      "confidence": 0.95,
+      "sha256": "9c23484b843c15a216aace0d10c106c896b0cfa854d90f743a760b2ceca7c89e"
+    },
+    {
+      "segment_id": "S003",
+      "index": 2,
+      "speaker": "DOCTOR",
+      "start_time": 9.2,
+      "end_time": 14.0,
+      "text": "Your temperature is 101.2 degrees and your throat looks red. I'll prescribe amoxicillin 500 mg three times a day for 10 days.",
+      "confidence": 0.96,
+      "sha256": "12c9f64df604751d011362e7c948b2e6131fd30cd1bb07f165d7aa3e9c2ed47d"
+    }
+  ],
+  "metadata": {
+    "schema_version": "1.0",
+    "pipeline_version": "1.0.0",
+    "rule_version": "1.0.0",
+    "source_format": "team_a_v1",
+    "extraction_mode": "rule",
+    "generation_mode": "template",
+    "model": null,
+    "phi_redacted_for_llm": false,
+    "transcript_sha256": "bb334c86d90f30c000fa0735941db88ee2f94d880d114aec2d6ccc768878bb46",
+    "processing_ms": {
+      "ingest": 0.2,
+      "extraction": 1.9,
+      "safety": 0.2,
+      "generation": 0.1,
+      "grounding": 2.2,
+      "total": 4.6
+    },
+    "warnings": []
+  }
+}
