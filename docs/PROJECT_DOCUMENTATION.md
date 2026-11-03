@@ -152,7 +152,7 @@ If Ollama is down, the pipeline **never fails**. It degrades to the deterministi
 - **Streamlit developer console** (`streamlit_app.py`). It loads samples, uploads or pastes JSON, fetches from Team A, switches modes, and inspects the note, conflicts, prescriptions, entities, transcript and the Team C JSON.
 - **Evaluation harness:** labelled cases, hallucination injection, and a safety ablation that generates the markdown and JSON report.
 - **Test suite:** 117 tests covering unit, API integration and an evaluation regression gate. All run offline in under 1 second.
-- Docker image (non-root, health check, PHI on a volume) and docker-compose.
+- Docker image (non-root, health check, PHI on a volume) and docker-compose; the image build and a live conflict request were verified on Python 3.11.
 - MTS-Dialog converter for building a held-out dataset.
 
 ---
@@ -533,6 +533,7 @@ app/
   evaluation/harness.py  metrics, hallucination injection, ablation, report
   utils/llm.py           Ollama client, privacy guard, robust JSON parsing
 streamlit_app.py         developer console
+legacy/pipeline_demo.py  original single-script prototype (kept for reference)
 scripts/                 evaluate.py, build_eval_cases.py, convert_mts_dialog.py
 data/samples/            Team A sample + demo conflict transcript
 data/evaluation/         cases.jsonl (labelled)
