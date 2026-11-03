@@ -120,14 +120,232 @@
       "grounding": {
         "mean_grounding_score": 1.0,
         "mean_hallucination_score": 0.0,
-        "mean_entity_coverage": 0.9848
+        "mean_entity_coverage": 1.0
       },
       "latency_ms": {
         "p50": 0.5,
-        "p95": 1.1,
-        "max": 7.4
+        "p95": 1.6,
+        "max": 3.9
       },
       "failures": []
+    },
+    {
+      "config": {
+        "extraction_mode": "hybrid",
+        "generation_mode": "llm"
+      },
+      "n_cases": 34,
+      "entities": {
+        "per_type": {
+          "ALLERGY": {
+            "precision": 0.923,
+            "recall": 1.0,
+            "f1": 0.96,
+            "tp": 12,
+            "fp": 1,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "DEMOGRAPHIC": {
+            "precision": 0.9,
+            "recall": 1.0,
+            "f1": 0.947,
+            "tp": 9,
+            "fp": 1,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "DIAGNOSIS": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 9,
+            "fp": 0,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "FINDING": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 2,
+            "fp": 0,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "MEDICATION": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 27,
+            "fp": 0,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "PROCEDURE": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 6,
+            "fp": 0,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "SYMPTOM": {
+            "precision": 0.964,
+            "recall": 1.0,
+            "f1": 0.982,
+            "tp": 27,
+            "fp": 1,
+            "fn": 0,
+            "status_accuracy": 1.0
+          },
+          "VITAL": {
+            "precision": 0.857,
+            "recall": 1.0,
+            "f1": 0.923,
+            "tp": 6,
+            "fp": 1,
+            "fn": 0,
+            "status_accuracy": 1.0
+          }
+        },
+        "micro": {
+          "precision": 0.961,
+          "recall": 1.0,
+          "f1": 0.98,
+          "tp": 98,
+          "fp": 4,
+          "fn": 0,
+          "status_accuracy": 1.0
+        }
+      },
+      "conflicts": {
+        "precision": 0.92,
+        "recall": 1.0,
+        "f1": 0.958,
+        "tp": 23,
+        "fp": 2,
+        "fn": 0,
+        "blocked_recall": 1.0
+      },
+      "triage": {
+        "accuracy": 0.941,
+        "critical_misses": [],
+        "under_triage": [],
+        "over_triage": [
+          "ADV-004",
+          "ADV-005"
+        ],
+        "confusion": {
+          "SAFE": {
+            "SAFE": 14,
+            "REVIEW_REQUIRED": 2
+          },
+          "CONFLICT_DETECTED": {
+            "CONFLICT_DETECTED": 6
+          },
+          "REVIEW_REQUIRED": {
+            "REVIEW_REQUIRED": 12
+          }
+        }
+      },
+      "grounding": {
+        "mean_grounding_score": 0.9091,
+        "mean_hallucination_score": 0.0707,
+        "mean_entity_coverage": 1.0
+      },
+      "latency_ms": {
+        "p50": 16792.1,
+        "p95": 42828.6,
+        "max": 102821.8
+      },
+      "failures": [
+        {
+          "case_id": "ADV-004",
+          "scenario": "Family-member medication",
+          "expected_status": "SAFE",
+          "predicted_status": "REVIEW_REQUIRED",
+          "missed_conflicts": [],
+          "extra_conflicts": [],
+          "missing_entities": [],
+          "extra_entities": [],
+          "wrong_status": []
+        },
+        {
+          "case_id": "ADV-005",
+          "scenario": "Symptom only - no diagnosis may be invented",
+          "expected_status": "SAFE",
+          "predicted_status": "REVIEW_REQUIRED",
+          "missed_conflicts": [],
+          "extra_conflicts": [],
+          "missing_entities": [],
+          "extra_entities": [],
+          "wrong_status": []
+        },
+        {
+          "case_id": "ADV-007",
+          "scenario": "Conflicting blood pressure readings",
+          "expected_status": "REVIEW_REQUIRED",
+          "predicted_status": "REVIEW_REQUIRED",
+          "missed_conflicts": [],
+          "extra_conflicts": [
+            {
+              "type": "VITAL_SIGN_ALERT",
+              "status": "REVIEW_REQUIRED",
+              "medication": null
+            },
+            {
+              "type": "VITAL_SIGN_ALERT",
+              "status": "REVIEW_REQUIRED",
+              "medication": null
+            }
+          ],
+          "missing_entities": [],
+          "extra_entities": [],
+          "wrong_status": []
+        },
+        {
+          "case_id": "PREG-001",
+          "scenario": "Pregnant patient + ACE inhibitor",
+          "expected_status": "CONFLICT_DETECTED",
+          "predicted_status": "CONFLICT_DETECTED",
+          "missed_conflicts": [],
+          "extra_conflicts": [],
+          "missing_entities": [],
+          "extra_entities": [
+            "DEMOGRAPHIC:sex:female"
+          ],
+          "wrong_status": []
+        },
+        {
+          "case_id": "SULFA-001",
+          "scenario": "Sulfa allergy from Q&A + Bactrim",
+          "expected_status": "CONFLICT_DETECTED",
+          "predicted_status": "CONFLICT_DETECTED",
+          "missed_conflicts": [],
+          "extra_conflicts": [],
+          "missing_entities": [],
+          "extra_entities": [
+            "ALLERGY:rash",
+            "SYMPTOM:burning during urination"
+          ],
+          "wrong_status": []
+        },
+        {
+          "case_id": "PEDS-001",
+          "scenario": "Aspirin for a child",
+          "expected_status": "REVIEW_REQUIRED",
+          "predicted_status": "REVIEW_REQUIRED",
+          "missed_conflicts": [],
+          "extra_conflicts": [],
+          "missing_entities": [],
+          "extra_entities": [
+            "VITAL:fever"
+          ],
+          "wrong_status": []
+        }
+      ]
     }
   ],
   "hallucination_injection": {

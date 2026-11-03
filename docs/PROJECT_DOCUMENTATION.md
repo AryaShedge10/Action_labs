@@ -480,7 +480,7 @@ pytest tests/evaluation   # regression gate on the labelled set (0 critical miss
 ### 11.2 Evaluation
 ```bash
 python scripts/evaluate.py              # deterministic configuration
-python scripts/evaluate.py --with-llm   # plus hybrid extraction and LLM SOAP (needs Ollama, ~40 min)
+python scripts/evaluate.py --with-llm   # plus hybrid extraction and LLM SOAP (needs Ollama, about 10 min)
 python scripts/build_eval_cases.py      # regenerate data/evaluation/cases.jsonl
 ```
 
@@ -504,6 +504,8 @@ See `reports/evaluation_report.md` for the current numbers. At the time of writi
 - 100% blocked-conflict recall;
 - 100% detection of injected hallucinations, with 0% false alarms;
 - 6 unsafe leaks without the safety engine versus 0 with it.
+
+**LLM configuration (hybrid extraction + LLM SOAP, Qwen3-8B, 34 cases):** entity F1 0.98, triage accuracy 0.94, conflict recall 1.00, **0 critical misses**, grounding 0.91, hallucination score 0.07, median latency about 17 s (p95 about 43 s). The LLM path is slightly less precise than the deterministic path (extra entities and over-triage into REVIEW_REQUIRED), but the grounding verifier and safety scrub still caught every blocked item. This is why the deterministic path is the default safety backbone.
 
 > **Honest caveat.** The cases and the rules were written by the same team, so these numbers measure rule coverage and regression safety, **not** real-world accuracy. The next step is a held-out set: convert MTS-Dialog with `scripts/convert_mts_dialog.py`, have someone outside the rule authors label it, and run the same harness.
 

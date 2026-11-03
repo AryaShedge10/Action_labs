@@ -12,7 +12,8 @@
 
 | Config | Entity P | Entity R | Entity F1 | Status acc. | Conflict P | Conflict R | Blocked recall | Triage acc. | Critical misses | Grounding | Hallucination | Coverage | p50 ms | p95 ms |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
-| rule + template | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 0 | 1.00 | 0.00 | 0.98 | 0.5 | 1.1 |
+| rule + template | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | 0 | 1.00 | 0.00 | 1.00 | 0.5 | 1.6 |
+| hybrid + llm | 0.96 | 1.00 | 0.98 | 1.00 | 0.92 | 1.00 | 1.00 | 0.94 | 0 | 0.91 | 0.07 | 1.00 | 16792.1 | 42828.6 |
 
 *Critical miss* = a case that should be CONFLICT_DETECTED but was reported SAFE.
 
@@ -30,6 +31,30 @@
 | VITAL | 1.00 | 1.00 | 1.00 | 1.00 | 6 | 0 | 0 |
 
 Triage confusion (rows = expected, columns = predicted): `{"SAFE": {"SAFE": 16}, "CONFLICT_DETECTED": {"CONFLICT_DETECTED": 6}, "REVIEW_REQUIRED": {"REVIEW_REQUIRED": 12}}`
+
+### Entity extraction by type (hybrid + llm)
+
+| Type | Precision | Recall | F1 | Status accuracy | TP | FP | FN |
+|---|--:|--:|--:|--:|--:|--:|--:|
+| ALLERGY | 0.92 | 1.00 | 0.96 | 1.00 | 12 | 1 | 0 |
+| DEMOGRAPHIC | 0.90 | 1.00 | 0.95 | 1.00 | 9 | 1 | 0 |
+| DIAGNOSIS | 1.00 | 1.00 | 1.00 | 1.00 | 9 | 0 | 0 |
+| FINDING | 1.00 | 1.00 | 1.00 | 1.00 | 2 | 0 | 0 |
+| MEDICATION | 1.00 | 1.00 | 1.00 | 1.00 | 27 | 0 | 0 |
+| PROCEDURE | 1.00 | 1.00 | 1.00 | 1.00 | 6 | 0 | 0 |
+| SYMPTOM | 0.96 | 1.00 | 0.98 | 1.00 | 27 | 1 | 0 |
+| VITAL | 0.86 | 1.00 | 0.92 | 1.00 | 6 | 1 | 0 |
+
+Triage confusion (rows = expected, columns = predicted): `{"SAFE": {"SAFE": 14, "REVIEW_REQUIRED": 2}, "CONFLICT_DETECTED": {"CONFLICT_DETECTED": 6}, "REVIEW_REQUIRED": {"REVIEW_REQUIRED": 12}}`
+
+**Cases with any deviation (6):**
+
+- `ADV-004` (Family-member medication): status SAFE -> REVIEW_REQUIRED
+- `ADV-005` (Symptom only - no diagnosis may be invented): status SAFE -> REVIEW_REQUIRED
+- `ADV-007` (Conflicting blood pressure readings): extra conflicts: VITAL_SIGN_ALERT, VITAL_SIGN_ALERT
+- `PREG-001` (Pregnant patient + ACE inhibitor): extra entities: DEMOGRAPHIC:sex:female
+- `SULFA-001` (Sulfa allergy from Q&A + Bactrim): extra entities: ALLERGY:rash, SYMPTOM:burning during urination
+- `PEDS-001` (Aspirin for a child): extra entities: VITAL:fever
 
 ## Hallucination detection (claim-level grounding verifier)
 
